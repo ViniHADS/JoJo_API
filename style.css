@@ -1,0 +1,843 @@
+@charset "UTF-8";
+
+/* 1. Identidade visual: cores reutilizadas em toda a página. */
+:root {
+  color-scheme: light;
+  --ink: #251335;
+  --paper: #f5f0df;
+  --pink: #ee83ba;
+  --purple: #613293;
+  --lime: #d8ee79;
+}
+
+/* 2. Base: dimensões, tipografia e largura do conteúdo. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 5px;
+}
+
+.container {
+  width: min(1240px,calc(100% - 64px));
+  margin-inline: auto;
+}
+
+/* 3. Faixa editorial e cabeçalho. */
+.edition {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 32px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 23px 0;
+  border-bottom: 2px solid var(--ink);
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -2px;
+}
+
+.brand span {
+  color: var(--purple);
+}
+
+.brand small {
+  font-size: 9px;
+  font-style: normal;
+  letter-spacing: 2px;
+  margin-left: 12px;
+}
+
+/* 4. Apresentação: título, selo e elementos decorativos. */
+.intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 235px;
+  gap: 30px;
+  padding: 48px 0 44px;
+  isolation: isolate;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.8px;
+  margin: 0 0 25px;
+}
+
+h1 {
+  font-family: Impact,'Arial Narrow',Arial,sans-serif;
+  font-size: clamp(60px,8.3vw,115px);
+  letter-spacing: -3px;
+  line-height: .93;
+  margin: 0;
+  font-weight: 900;
+}
+
+h1 em {
+  display: inline-block;
+  font-family: Georgia,'Times New Roman',serif;
+  font-size: .65em;
+  letter-spacing: -4px;
+  line-height: 1.08;
+  font-weight: 900;
+  color: var(--purple);
+  position: relative;
+  margin-top: 8px;
+}
+
+h1 em:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 21%;
+  background: var(--pink);
+  z-index: -1;
+  transform: rotate(-2deg);
+}
+
+.intro-aside {
+  padding-top: 5px;
+  position: relative;
+}
+
+.intro-aside p {
+  line-height: 1.6;
+  font-size: 15px;
+  margin: 20px 0 10px;
+  max-width: 240px;
+}
+
+.seal {
+  display: block;
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  text-align: center;
+  background: var(--lime);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1.1;
+  padding: 13px 5px;
+  transform: rotate(12deg);
+}
+
+.seal b {
+  font-family: Georgia,serif;
+  display: block;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.seal span {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.explore {
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 30px;
+  min-height: 44px;
+}
+
+.explore span {
+  font-size: 24px;
+}
+
+.intro-star {
+  position: absolute;
+  right: 285px;
+  top: 15px;
+  font-size: 100px;
+  color: var(--pink);
+  z-index: -1;
+  transform: rotate(12deg);
+}
+
+/* 5. Galeria: grade responsiva e paleta de cada personagem. */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 16px 0;
+  margin-bottom: 27px;
+}
+
+h2 {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+h2 span {
+  color: var(--purple);
+  margin-right: 12px;
+}
+
+.section-title>span {
+  font-size: 11px;
+  letter-spacing: 1.3px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.card {
+  --accent: #f092c4;
+  --wash: #aa73c0;
+  --contrast: #6b2586;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card.gyro {
+  --accent: #d8ee79;
+  --wash: #acd3b6;
+  --contrast: #2b665d;
+  margin-top: 26px;
+}
+
+.card.dio {
+  --accent: #f1ce63;
+  --wash: #9d95cd;
+  --contrast: #534684;
+}
+
+/* 6. Mídia: retícula e diagonais em CSS, sem imagens de fundo extras. */
+.visual {
+  height: 355px;
+  background: radial-gradient(circle,#25133525 1px,transparent 1.5px) 0 0/6px 6px,var(--wash);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 2px solid var(--ink);
+  isolation: isolate;
+}
+
+.visual:before {
+  content: '';
+  position: absolute;
+  width: 73%;
+  height: 150%;
+  top: -20%;
+  left: 18%;
+  background: var(--accent);
+  transform: rotate(25deg);
+  z-index: -1;
+  border-inline: 2px solid var(--ink);
+}
+
+.visual:after {
+  content: '✦';
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  color: var(--paper);
+  text-shadow: 2px 2px var(--ink);
+  font-size: 56px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.backdrop-name {
+  position: absolute;
+  top: 57px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--contrast);
+  font-family: Impact,'Arial Narrow',sans-serif;
+  font-weight: 900;
+  font-size: clamp(50px,5.6vw,84px);
+  letter-spacing: -4px;
+  transform: rotate(-9deg);
+  opacity: .85;
+}
+
+.visual img,.visual video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 16px 16px 0;
+  object-position: center bottom;
+  filter: drop-shadow(5px 5px 0 #25133544);
+}
+
+.visual img {
+  transform: none;
+  transform-origin: 50% 100%;
+  transition: transform .25s ease;
+}
+
+.card:hover .visual img {
+  transform: translateY(-3px);
+}
+
+.visual video {
+  padding: 0;
+  background: var(--ink);
+  filter: none;
+}
+
+.visual [hidden] {
+  display: none;
+}
+
+.number {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  padding: 5px 12px;
+  font-family: Georgia,serif;
+  font-style: italic;
+  font-size: 21px;
+  font-weight: bold;
+  transform: rotate(-5deg);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* 7. Conteúdo textual e painel expansível de cada card. */
+.content {
+  padding: 21px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.part {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0 0 10px;
+  color: #594768;
+}
+
+h3 {
+  font-family: Georgia,'Times New Roman',serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(25px,2.6vw,37px);
+  margin: 0 0 10px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.power {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 0;
+  align-self: flex-start;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #55475c;
+  min-height: 42px;
+  margin: 15px 0 20px;
+}
+
+.detail {
+  padding: 12px;
+  border: 1px solid var(--ink);
+  background: #fffaf0;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.detail p {
+  margin: 0;
+}
+
+.detail a {
+  font-size: 13px;
+}
+
+.media-note {
+  color: #65596d;
+  font-size: 12px;
+  margin-top: 8px!important;
+}
+
+/* 8. Interação: botões reais, estados e foco pelo teclado. */
+button {
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--accent);
+  color: var(--ink);
+  text-align: left;
+  min-height: 48px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform .15s,box-shadow .15s;
+}
+
+button:hover {
+  transform: translate(2px,2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+button:after {
+  content: ' ↗';
+  float: right;
+  font-size: 16px;
+  line-height: 1;
+}
+
+button[aria-expanded=true]:after {
+  content: ' ↙';
+}
+
+a:focus-visible,button:focus-visible {
+  outline: 3px solid #205dcc;
+  outline-offset: 5px;
+}
+
+/* 9. Rodapé, atalho de acessibilidade e aviso de carregamento. */
+footer {
+  margin-top: 64px;
+  padding: 25px 0;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+footer p:first-child {
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.skip {
+  position: fixed;
+  top: -100px;
+  padding: 14px;
+  z-index: 10;
+  background: var(--paper);
+}
+
+.skip:focus {
+  top: 0;
+}
+
+#status:empty {
+  display: none;
+}
+
+/* 10. Tablet: duas colunas; o último card combina mídia e texto. */
+@media(max-width:950px) {
+  .intro {
+    grid-template-columns: minmax(0,1fr) 190px;
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: clamp(65px,8.3vw,90px);
+  }
+
+  h1 em {
+    letter-spacing: -2px;
+  }
+
+  .intro-star {
+    right: 220px;
+    font-size: 70px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .card.gyro {
+    margin-top: 0;
+  }
+
+  .visual {
+    height: 335px;
+  }
+
+  .backdrop-name {
+    font-size: 72px;
+  }
+
+  .card.dio {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card.dio .visual {
+    border-bottom: 0;
+    border-right: 2px solid var(--ink);
+  }
+
+  .card.dio .content {
+    justify-content: center;
+  }
+
+  .description {
+    min-height: 0;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+}
+
+/* 11. Celular: uma coluna, sem rolagem horizontal. */
+@media(max-width:600px) {
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  .edition {
+    padding: 9px 18px;
+    letter-spacing: 1px;
+    font-size: 8px;
+  }
+
+  .edition span:last-child {
+    display: none;
+  }
+
+  header {
+    padding: 14px 0;
+  }
+
+  .brand {
+    font-size: 28px;
+  }
+
+  .brand small {
+    font-size: 8px;
+    margin-left: 8px;
+    letter-spacing: 1px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+
+  .intro {
+    grid-template-columns: 1fr;
+    padding: 32px 0 25px;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 19px;
+  }
+
+  h1 {
+    font-size: clamp(53px,13vw,77px);
+    letter-spacing: -2px;
+  }
+
+  h1 em {
+    letter-spacing: -2px;
+  }
+
+  .intro-aside {
+    display: grid;
+    grid-template-columns: 1fr 77px;
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  .intro-aside p {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .seal {
+    grid-column: 2;
+    grid-row: 1/3;
+    width: 69px;
+    height: 69px;
+    font-size: 8px;
+    padding: 8px 2px;
+  }
+
+  .seal b {
+    font-size: 27px;
+  }
+
+  .seal span {
+    font-size: 5px;
+  }
+
+  .explore {
+    grid-column: 1;
+    font-size: 13px;
+  }
+
+  .intro-star {
+    right: 2px;
+    top: 27px;
+    font-size: 42px;
+  }
+
+  .section-title {
+    padding: 14px 0;
+    margin-bottom: 22px;
+  }
+
+  .section-title h2 {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  h2 span {
+    margin-right: 3px;
+  }
+
+  .section-title>span {
+    font-size: 11px;
+    letter-spacing: .6px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .card.dio {
+    display: flex;
+    grid-column: auto;
+  }
+
+  .card.dio .visual {
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .visual {
+    height: 345px;
+  }
+
+  .backdrop-name {
+    font-size: 82px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  h3 {
+    font-size: 35px;
+  }
+
+  footer {
+    display: block;
+    margin-top: 40px;
+  }
+
+  .card:hover .visual img {
+    transform: none;
+  }
+
+}
+
+/* 12. Acessibilidade: respeitar a preferência por movimento reduzido. */
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,*:before,*:after {
+    transition: none!important;
+  }
+
+  .card:hover .visual img {
+    transform: none;
+  }
+
+}
+
+/* Recuperação de falhas e créditos recolhíveis: sem dependências adicionais. */
+[hidden] { display: none !important; }
+#retry { --accent: var(--lime); max-width: 260px; margin: 0 0 24px; }
+button:disabled { cursor: wait; opacity: .65; }
+#status { line-height: 1.6; }
+.media-credits { margin-top: 20px; border-top: 1px solid var(--ink); padding-top: 12px; }
+.media-credits summary { cursor: pointer; font-weight: bold; padding-block: 10px; }
+.media-credits ul { padding-left: 20px; line-height: 1.8; }
+.media-credits summary:focus-visible { outline: 3px solid #205dcc; outline-offset: 4px; }
+footer { flex-wrap: wrap; }
+footer .media-credits { flex-basis: 100%; }
+/* Detalhes e retratos usam a mesma moldura; nenhuma ampliação corta as bordas. */
+.card.is-expanded .visual img { object-position: center; padding: 14px; }
+.card.is-expanded:hover .visual img { transform: none; }
+@media (max-width: 600px) {
+  .section-title { flex-wrap: wrap; gap: 10px; }
+  .intro-aside { grid-template-columns: minmax(0, 1fr) 69px; gap: 16px; }
+  .eyebrow { max-width: calc(100% - 42px); line-height: 1.6; }
+  .brand small { display: none; }
+  .detail a { display: inline-block; padding-block: 8px; }
+}
+
+/* Segunda galeria: cores individuais e o mesmo componente de card. */
+header nav { display: flex; gap: 20px; flex-wrap: wrap; }
+#joestars { margin-top: 56px; }
+.section-description { font-size: 15px; line-height: 1.6; margin: -8px 0 24px; color: #55475c; }
+.card.jonathan { --accent: #a8d7f2; --wash: #a099d1; --contrast: #314b80; }
+.card.joseph { --accent: #efb477; --wash: #9fb9aa; --contrast: #48553a; }
+.card.jotaro { --accent: #b5a0de; --wash: #8fc7c2; --contrast: #44316b; }
+.jonathan .backdrop-name { font-size: clamp(40px, 4.7vw, 66px); }
+@media (min-width: 601px) and (max-width: 950px) {
+  .card.jotaro { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+  .card.jotaro .visual { border-bottom: 0; border-right: 2px solid var(--ink); }
+  .card.jotaro .content { justify-content: center; }
+}
+@media (max-width: 600px) {
+  header nav { gap: 4px 12px; justify-content: flex-end; }
+  header .nav-link { font-size: 11px; }
+  #joestars { margin-top: 40px; }
+  .jonathan .backdrop-name { font-size: 60px; }
+}
+
+/* Sobre o projeto: texto semântico, estático e leve, antes do rodapé. */
+#sobre {
+  margin-top: 56px;
+}
+
+.about-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 36px;
+  padding: 28px;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  background: #eee5f3;
+}
+
+.about-lead h3 {
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-copy {
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.about-copy p {
+  margin: 0 0 18px;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-copy code {
+  font-size: .95em;
+  overflow-wrap: anywhere;
+}
+
+.about-note {
+  border-left: 3px solid var(--purple);
+  padding-left: 14px;
+  font-size: 13px;
+  color: #55475c;
+}
+
+@media (max-width: 768px) {
+  .about-panel {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  #sobre {
+    margin-top: 40px;
+  }
+
+  .about-lead .eyebrow {
+    max-width: none;
+  }
+}

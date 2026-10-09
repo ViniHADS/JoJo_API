@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Metadados: português do Brasil, UTF-8 e viewport responsivo. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Meus favoritos de JoJo e três gerações: Jonathan, Joseph e Jotaro.">
+    <title>Meu top 3 · JoJo</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%2327203e'/%3E%3Ctext x='20' y='30' text-anchor='middle' font-size='30' fill='%23e6f088'%3E★%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Faixa decorativa, omitida da leitura por tecnologias assistivas. -->
+    <div class="edition" aria-hidden="true">
+      <span>★ PERSONAGENS BIZARROS.</span>
+      <span>UMA SELEÇÃO NADA COMUM. ★</span>
+    </div>
+    <a class="skip" href="#favoritos">Pular para os personagens</a>
+    <!-- Cabeçalho: identidade e navegação interna. -->
+    <header class="container">
+      <a class="brand" href="#inicio">
+        <span aria-hidden="true">★</span> JOJO <small>FAN COLLECTION</small>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a class="nav-link" href="#favoritos">Meu top 3 <span aria-hidden="true">↗</span>
+        </a>
+        <a class="nav-link" href="#joestars">Os Joestars <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <!-- Conteúdo principal: um h1 e seções nomeadas pelos seus títulos. -->
+    <main class="container" id="inicio">
+      <section class="intro" aria-labelledby="titulo">
+        <div class="intro-heading">
+          <p class="eyebrow">JOJO’S BIZARRE ADVENTURE / MINHA SELEÇÃO</p>
+          <h1 id="titulo">BIZARRO.<br>
+            <em>POR NATUREZA.</em>
+          </h1>
+        </div>
+        <div class="intro-aside">
+          <span class="seal" aria-hidden="true">TOP<br>
+            <b>03</b>
+            <span>★ FAVORITOS ★</span>
+          </span>
+          <p>Giorno. Gyro. Dio.<br>Três presenças impossíveis de ignorar. Estes são os meus favoritos do universo JoJo.</p>
+          <a class="explore" href="#favoritos">Explore a seleção <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+        <span class="intro-star" aria-hidden="true">✦</span>
+      </section>
+      <!-- Os artigos dos personagens são inseridos pelo JavaScript após o fetch local. -->
+      <section id="favoritos" aria-labelledby="favoritos-titulo">
+        <div class="section-title">
+          <h2 id="favoritos-titulo"><span aria-hidden="true">01 / </span> OS FAVORITOS</h2>
+          <span>PERSONAGEM × HABILIDADE</span>
+        </div>
+        <p id="status" role="status">Carregando os personagens…</p>
+        <button id="retry" type="button" aria-controls="cards joestar-cards" hidden>Tentar novamente</button>
+        <div id="cards" class="grid" aria-busy="true"></div>
+        <noscript><p>Ative o JavaScript para carregar os personagens.</p></noscript>
+      </section>
+      <!-- As fases escolhidas diferenciam Hamon dos Stands da base original. -->
+      <section id="joestars" aria-labelledby="joestars-titulo">
+        <div class="section-title">
+          <h2 id="joestars-titulo"><span aria-hidden="true">02 / </span> TRÊS GERAÇÕES</h2>
+          <span>DO HAMON AOS STANDS</span>
+        </div>
+        <p class="section-description">Jonathan, Joseph e Jotaro: três protagonistas, três fases da aventura.</p>
+        <div id="joestar-cards" class="grid" aria-busy="true"></div>
+      </section>
+      <!-- Contexto acadêmico: distinguir a API original da cópia local dos dados. -->
+      <section id="sobre" aria-labelledby="sobre-titulo">
+        <div class="section-title">
+          <h2 id="sobre-titulo"><span aria-hidden="true">03 / </span> SOBRE O PROJETO</h2>
+          <span>OS DADOS POR TRÁS DOS CARDS</span>
+        </div>
+        <div class="about-panel">
+          <div class="about-lead">
+            <p class="eyebrow">DA JOJOAPI PARA ESTA PÁGINA</p>
+            <h3>Uma base de dados.<br>Uma seleção do meu jeito.</h3>
+            <a class="explore" href="https://github.com/ItzSylex/JojoAPI">Conhecer a JojoAPI <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="about-copy">
+            <p>A JojoAPI, criada por ItzSylex, reúne informações sobre personagens e Stands de JoJo, como nomes, tipos de Stand, características dos usuários e links de imagens. O projeto documenta consultas por parte da obra e filtros por características dos personagens.</p>
+            <p>Como o serviço original está indisponível, baixei o arquivo <code>data.json</code> do repositório e incluí uma seleção dos registros em arquivos JSON locais. O JavaScript carrega esses arquivos com a Fetch API, pelo servidor local na minha máquina. Assim, a página utiliza uma cópia dos dados, sem depender do servidor original.</p>
+            <p>Para deixar a seleção do meu jeito, acrescentei Gyro manualmente e adaptei Jonathan e Joseph para suas fases como usuários de Hamon. Eles já aparecem na base original, mas associados a registros de Stands. Mantive os dados de origem separados dessas adaptações.</p>
+            <p class="about-note">Embora o README da JojoAPI mencione três partes, o arquivo baixado também contém Stone Ocean. Gyro, de Steel Ball Run, não está nessa base.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Créditos e referências dos dados utilizados. -->
+    <footer class="container">
+      <p>★ JOJO Bizarre Adventure</p>
+      <p>
+        Dados: <a href="https://github.com/ItzSylex/JojoAPI">JojoAPI · ItzSylex</a>
+        e <a href="https://jojowiki.com/Gyro_Zeppeli">JoJo Wiki</a>.
+        Projeto acadêmico de fã. &copy; 2026 · Vinicius Araujo ★
+      </p>
+      <!-- Créditos acessíveis sem ocupar espaço na galeria. -->
+      <details class="media-credits">
+        <summary>Créditos das imagens e mídias</summary>
+        <ul>
+          <li>Giorno, Gold Experience, Dio, The World, Jonathan, Joseph, Jotaro e Star Platinum: imagens da <a href="https://github.com/ItzSylex/JojoAPI">base JojoAPI</a>, hospedadas originalmente na JoJo Wiki.</li>
+          <li>Retrato de Gyro: <a href="https://jojowiki.com/Gyro_Zeppeli">JoJo Wiki</a>.</li>
+          <li>Gyro com as esferas: imagem fornecida por Vinicius Araujo, com fundo removido. A fonte original ainda não foi identificada.</li>
+          <li>Personagens de Hirohiko Araki. Imagens pertencem aos respectivos titulares; este é um projeto acadêmico de fã.</li>
+          <li>Vídeos: ainda não adicionados. As fontes serão registradas junto de cada clipe.</li>
+        </ul>
+      </details>
+    </footer>
+  </body>
+</html>

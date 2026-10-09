@@ -1,0 +1,49 @@
+{
+  "Steel Ball Run": [
+    {
+      "user": "Gyro Zeppeli",
+      "stand": null,
+      "ability": "Steel Balls · Spin",
+      "type": [
+        "Spin"
+      ],
+      "user_images": [
+        "https://static.jojowiki.com/images/thumb/7/76/latest/20200816174510/Gyro_Zeppeli_Infobox_Manga.png/400px-Gyro_Zeppeli_Infobox_Manga.png"
+      ],
+      "stand_images": [],
+      "source": "https://jojowiki.com/Gyro_Zeppeli"
+    }
+  ],
+  "Phantom Blood": [
+    {
+      "user": "Jonathan Joestar",
+      "stand": null,
+      "ability": "Hamon",
+      "type": [
+        "Técnica de respiração"
+      ],
+      "user_images": [
+        "https://static.jojowiki.com/images/thumb/3/34/latest/20200604060940/Jonathan_Infobox_Anime.png/400px-Jonathan_Infobox_Anime.png"
+      ],
+      "stand_images": [],
+      "source": "https://jojowiki.com/Jonathan_Joestar",
+      "adaptation": "Versão editorial da fase Phantom Blood; o registro original foi preservado em jojo.json."
+    }
+  ],
+  "Battle Tendency": [
+    {
+      "user": "Joseph Joestar",
+      "stand": null,
+      "ability": "Hamon",
+      "type": [
+        "Técnica de respiração"
+      ],
+      "user_images": [
+        "https://static.jojowiki.com/images/thumb/6/6e/latest/20210313174003/Joseph_young_BT_Infobox_Anime.png/400px-Joseph_young_BT_Infobox_Anime.png"
+      ],
+      "stand_images": [],
+      "source": "https://jojowiki.com/Joseph_Joestar",
+      "adaptation": "Versão editorial da fase Battle Tendency; o registro original foi preservado em jojo.json."
+    }
+  ]
+}
